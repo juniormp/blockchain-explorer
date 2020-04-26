@@ -1,10 +1,12 @@
 <?php
 
 
-namespace App\Explorer\Domain;
+namespace App\Domain\Explorer\Models;
 
 
-class ForgedDTO
+use Illuminate\Database\Eloquent\Model;
+
+class ForgedDTO extends Model
 {
     /** @var int */
     private $reward;

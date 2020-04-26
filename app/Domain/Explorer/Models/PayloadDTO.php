@@ -1,10 +1,12 @@
 <?php
 
 
-namespace App\Explorer\Domain;
+namespace App\Domain\Explorer\Models;
 
 
-class PayloadDTO
+use Illuminate\Database\Eloquent\Model;
+
+class PayloadDTO extends Model
 {
     /** @var string */
     private $hash;

@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Explorer\Domain;
+namespace App\Domain\Explorer\Models;
 
 
-use Facade\FlareClient\Time\Time;
+use Illuminate\Database\Eloquent\Model;
 
-class TimestampDTO
+class TimestampDTO extends Model
 {
     /** @var integer */
     private $epoch;

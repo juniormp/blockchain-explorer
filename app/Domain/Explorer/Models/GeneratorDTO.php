@@ -1,10 +1,12 @@
 <?php
 
 
-namespace App\Explorer\Domain;
+namespace App\Domain\Explorer\Models;
 
 
-class GeneratorDTO
+use Illuminate\Database\Eloquent\Model;
+
+class GeneratorDTO extends Model
 {
     /** @var string */
     private $username;
