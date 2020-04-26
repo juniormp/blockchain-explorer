@@ -11,7 +11,7 @@ use App\Domain\Explorer\Models\GeneratorDTO;
 use App\Domain\Explorer\Models\PayloadDTO;
 use App\Domain\Explorer\Models\TimestampDTO;
 
-class BlocksFactory
+class CollectionBlocksFactory
 {
     public function buildCollection(array $response): CollectionBlocksDTO {
         $collectionBlocks = new CollectionBlocksDTO();

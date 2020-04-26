@@ -4,15 +4,15 @@
 namespace Tests\Domain\Explorer\Factories;
 
 
-use App\Domain\Explorer\Factories\BlocksFactory;
+use App\Domain\Explorer\Factories\CollectionBlocksFactory;
 use Tests\Support\Builders\CollectionBlocksSupportBuilder;
 use Tests\Support\ListBlocksMock;
 use Tests\TestCase;
 
-class BlocksFactoriesTest extends TestCase
+class CollectionBlocksFactoriesTest extends TestCase
 {
     public function test_it_creates_collection_blocks(){
-        $factory = new BlocksFactory();
+        $factory = new CollectionBlocksFactory();
         $blockArray = json_decode(ListBlocksMock::jsonResponse(), true);
         $expected = CollectionBlocksSupportBuilder::buildDefault();
 
