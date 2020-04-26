@@ -27,4 +27,19 @@ class ArkClientApiTest extends TestCase
 
         $this->assertEquals(json_decode($expected, true), $response);
     }
+
+    public function test_it_should_list_blockchain_transactions(){
+        $expected = ListBlocksMock::jsonResponse();
+        $action = 'transactions';
+        $httpClient = Mockery::mock(Client::class);
+        $arkClientApi = new ArkClientApi($httpClient);
+        $responseHttpClient = $this->createMock(Response::class);
+
+        $httpClient->shouldReceive('get')->with($action)->andReturn($responseHttpClient);
+        $responseHttpClient->expects($this->once())->method('getBody')->willReturn($expected);
+
+        $response = $arkClientApi->listBlocks('transactions');
+
+        $this->assertEquals(json_decode($expected, true), $response);
+    }
 }
