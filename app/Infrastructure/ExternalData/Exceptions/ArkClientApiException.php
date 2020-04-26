@@ -4,12 +4,9 @@
 namespace App\Infrastructure\ExternalData\Exceptions;
 
 
-use Symfony\Component\HttpKernel\Exception\HttpException;
+use GuzzleHttp\Exception\TransferException;
 
-class ArkClientApiException extends HttpException
+class ArkClientApiException extends TransferException
 {
-    public function __construct(string $message, int $statusCode)
-    {
-        parent::__construct($statusCode, $message);
-    }
+
 }

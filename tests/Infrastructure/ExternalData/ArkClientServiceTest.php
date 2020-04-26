@@ -8,6 +8,7 @@ use App\Infrastructure\ExternalData\ArkClientApi;
 use App\Infrastructure\ExternalData\ArkClientService;
 use App\Infrastructure\ExternalData\Exceptions\ArkClientApiException;
 use App\Infrastructure\ExternalData\Requests\ListBlocksRequest;
+use App\Infrastructure\ExternalData\Requests\ListTransactionsRequest;
 use GuzzleHttp\Exception\TransferException;
 use Tests\TestCase;
 
@@ -39,5 +40,33 @@ class ArkClientServiceTest extends TestCase
         $this->expectExceptionMessage('error');
 
         $arkClientService->handleListBlocks($request);
+    }
+
+    public function test_it_should_handle_list_transactions_request(){
+        $arkClientApi = $this->createMock(ArkClientApi::class);
+        $arkClientService = new ArkClientService($arkClientApi);
+        $request = new ListTransactionsRequest();
+        $expected = ["fake-response"];
+
+        $arkClientApi->expects($this->once())->method('listTransactions')->with($request::getHttpAction())
+            ->willReturn($expected);
+
+        $response = $arkClientService->handleListTransactions($request);
+
+        $this->assertEquals($expected, $response);
+    }
+
+    public function test_it_throws_transactions_when_there_is_an_error(){
+        $arkClientApi = $this->createMock(ArkClientApi::class);
+        $arkClientService = new ArkClientService($arkClientApi);
+        $request = new ListTransactionsRequest();
+
+        $arkClientApi->expects($this->once())->method('listTransactions')->with($request::getHttpAction())
+            ->willThrowException(new TransferException('error'));
+
+        $this->expectException(ArkClientApiException::class);
+        $this->expectExceptionMessage('error');
+
+        $arkClientService->handleListTransactions($request);
     }
 }
