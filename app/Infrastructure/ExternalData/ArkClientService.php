@@ -22,7 +22,7 @@ class ArkClientService
     {
         try {
             $action = $request::getHttpAction();
-            return $this->arkClientApi->listBlocks($action);
+            return $this->arkClientApi->request($action);
         } catch (TransferException $exception) {
             throw new ArkClientApiException($exception->getMessage());
         }
@@ -32,7 +32,7 @@ class ArkClientService
     {
         try {
             $action = $request::getHttpAction();
-            return $this->arkClientApi->listTransactions($action);
+            return $this->arkClientApi->request($action);
         } catch (TransferException $exception) {
             throw new ArkClientApiException($exception->getMessage());
         }

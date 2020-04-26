@@ -20,7 +20,7 @@ class ArkClientServiceTest extends TestCase
         $request = new ListBlocksRequest();
         $expected = ["fake-response"];
 
-        $arkClientApi->expects($this->once())->method('listBlocks')->with($request::getHttpAction())
+        $arkClientApi->expects($this->once())->method('request')->with($request::getHttpAction())
             ->willReturn($expected);
 
         $response = $arkClientService->handleListBlocks($request);
@@ -33,7 +33,7 @@ class ArkClientServiceTest extends TestCase
         $arkClientService = new ArkClientService($arkClientApi);
         $request = new ListBlocksRequest();
 
-        $arkClientApi->expects($this->once())->method('listBlocks')->with($request::getHttpAction())
+        $arkClientApi->expects($this->once())->method('request')->with($request::getHttpAction())
             ->willThrowException(new TransferException('error'));
 
         $this->expectException(ArkClientApiException::class);
@@ -48,7 +48,7 @@ class ArkClientServiceTest extends TestCase
         $request = new ListTransactionsRequest();
         $expected = ["fake-response"];
 
-        $arkClientApi->expects($this->once())->method('listTransactions')->with($request::getHttpAction())
+        $arkClientApi->expects($this->once())->method('request')->with($request::getHttpAction())
             ->willReturn($expected);
 
         $response = $arkClientService->handleListTransactions($request);
@@ -61,7 +61,7 @@ class ArkClientServiceTest extends TestCase
         $arkClientService = new ArkClientService($arkClientApi);
         $request = new ListTransactionsRequest();
 
-        $arkClientApi->expects($this->once())->method('listTransactions')->with($request::getHttpAction())
+        $arkClientApi->expects($this->once())->method('request')->with($request::getHttpAction())
             ->willThrowException(new TransferException('error'));
 
         $this->expectException(ArkClientApiException::class);

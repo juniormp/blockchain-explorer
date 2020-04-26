@@ -15,13 +15,7 @@ class ArkClientApi
         $this->httpClient = $httpClient;
     }
 
-    function listBlocks(string $action): array
-    {
-        $response = $this->httpClient->get($action);
-        return json_decode($response->getBody(), true);
-    }
-
-    function listTransactions(string $action): array
+    function request(string $action): array
     {
         $response = $this->httpClient->get($action);
         return json_decode($response->getBody(), true);
