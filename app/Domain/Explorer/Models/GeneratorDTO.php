@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Explorer\Domain;
+namespace App\Domain\Explorer\Models;
 
 
 class GeneratorDTO

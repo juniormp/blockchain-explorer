@@ -1,10 +1,8 @@
 <?php
 
 
-namespace App\Explorer\Domain;
+namespace App\Domain\Explorer\Models;
 
-
-use Facade\FlareClient\Time\Time;
 
 class TimestampDTO
 {

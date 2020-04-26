@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Explorer\Domain;
+namespace App\Domain\Explorer\Models;
 
 
 class BlockDTO
 {
-    /** @var integer */
+    /** @var string */
     private $id;
 
     /** @var integer */
@@ -15,7 +15,7 @@ class BlockDTO
     /** @var integer */
     private $height;
 
-    /** @var integer */
+    /** @var string */
     private $previous;
 
     /** @var ForgedDTO */
@@ -39,12 +39,12 @@ class BlockDTO
     /** @var TimestampDTO */
     private $timestamp;
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }
 
-    public function setId(int $id): BlockDTO
+    public function setId(string $id): BlockDTO
     {
         $this->id = $id;
         return $this;
@@ -72,12 +72,12 @@ class BlockDTO
         return $this;
     }
 
-    public function getPrevious(): int
+    public function getPrevious(): string
     {
         return $this->previous;
     }
 
-    public function setPrevious(int $previous): BlockDTO
+    public function setPrevious(string $previous): BlockDTO
     {
         $this->previous = $previous;
         return $this;
