@@ -6,5 +6,5 @@ namespace App\Infrastructure\ExternalData\Requests;
 
 interface IOperationRequest
 {
-    public static function getHttpAction();
+    public function getHttpAction();
 }
