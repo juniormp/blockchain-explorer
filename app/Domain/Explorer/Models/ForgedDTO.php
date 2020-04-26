@@ -4,9 +4,7 @@
 namespace App\Domain\Explorer\Models;
 
 
-use Illuminate\Database\Eloquent\Model;
-
-class ForgedDTO extends Model
+class ForgedDTO
 {
     /** @var int */
     private $reward;

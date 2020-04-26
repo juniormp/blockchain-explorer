@@ -4,9 +4,7 @@
 namespace App\Domain\Explorer\Models;
 
 
-use Illuminate\Database\Eloquent\Model;
-
-class GeneratorDTO extends Model
+class GeneratorDTO
 {
     /** @var string */
     private $username;

@@ -4,9 +4,7 @@
 namespace App\Domain\Explorer\Models;
 
 
-use Illuminate\Database\Eloquent\Model;
-
-class BlockDTO extends Model
+class BlockDTO
 {
     /** @var string */
     private $id;

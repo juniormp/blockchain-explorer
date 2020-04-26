@@ -4,9 +4,7 @@
 namespace App\Domain\Explorer\Models;
 
 
-use Illuminate\Database\Eloquent\Model;
-
-class TimestampDTO extends Model
+class TimestampDTO
 {
     /** @var integer */
     private $epoch;

@@ -4,9 +4,7 @@
 namespace App\Domain\Explorer\Models;
 
 
-use Illuminate\Database\Eloquent\Model;
-
-class PayloadDTO extends Model
+class PayloadDTO
 {
     /** @var string */
     private $hash;
