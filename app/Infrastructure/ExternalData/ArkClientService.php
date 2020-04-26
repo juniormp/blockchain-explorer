@@ -23,7 +23,7 @@ class ArkClientService
             $action = $request::getHttpAction();
             return $this->arkClientApi->listBlocks($action);
         } catch (TransferException $exception) {
-            throw new ArkClientApiException($exception->getMessage(), $exception->getCode());
+            throw new ArkClientApiException($exception->getMessage());
         }
     }
 }
