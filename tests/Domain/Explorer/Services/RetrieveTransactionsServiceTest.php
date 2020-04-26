@@ -21,7 +21,7 @@ class RetrieveTransactionsServiceTest extends TestCase
         $collectionBlocks = $this->createMock(CollectionsTransactionDTO::class);
         $service = new RetrieveTransactionsService($arkClientService, $transactionFactory, $request);
 
-        $arkClientService->expects($this->once())->method('handleListTransactions')->with($request)
+        $arkClientService->expects($this->once())->method('handleRequest')->with($request)
             ->willReturn($transactionPayload);
         $transactionFactory->expects($this->once())->method('buildCollection')->with($transactionPayload)
             ->willReturn($collectionBlocks);
