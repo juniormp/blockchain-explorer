@@ -4,9 +4,9 @@
 namespace App\Infrastructure\ExternalData\Requests;
 
 
-class ListBlocksRequest
+class ListTransactionsRequest
 {
-    const ACTION_URI = 'blocks';
+    const ACTION_URI = 'transactions';
 
     public static function getHttpAction(): string {
         return self::ACTION_URI;
