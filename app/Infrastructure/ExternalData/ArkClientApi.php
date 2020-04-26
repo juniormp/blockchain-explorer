@@ -20,4 +20,10 @@ class ArkClientApi
         $response = $this->httpClient->get($action);
         return json_decode($response->getBody(), true);
     }
+
+    function listTransactions(string $action): array
+    {
+        $response = $this->httpClient->get($action);
+        return json_decode($response->getBody(), true);
+    }
 }
