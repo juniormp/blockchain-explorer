@@ -9,6 +9,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Mockery;
 use Tests\Support\ListBlocksMock;
+use Tests\Support\ListTransactionsMock;
 use Tests\TestCase;
 
 class ArkClientApiTest extends TestCase
@@ -29,7 +30,7 @@ class ArkClientApiTest extends TestCase
     }
 
     public function test_it_should_list_blockchain_transactions(){
-        $expected = ListBlocksMock::jsonResponse();
+        $expected = ListTransactionsMock::jsonResponse();
         $action = 'transactions';
         $httpClient = Mockery::mock(Client::class);
         $arkClientApi = new ArkClientApi($httpClient);
@@ -38,7 +39,7 @@ class ArkClientApiTest extends TestCase
         $httpClient->shouldReceive('get')->with($action)->andReturn($responseHttpClient);
         $responseHttpClient->expects($this->once())->method('getBody')->willReturn($expected);
 
-        $response = $arkClientApi->listBlocks('transactions');
+        $response = $arkClientApi->listTransactions('transactions');
 
         $this->assertEquals(json_decode($expected, true), $response);
     }
