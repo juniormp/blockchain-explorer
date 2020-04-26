@@ -27,7 +27,7 @@ class RetrieveTransactionsService
     }
 
     public function execute(){
-        $transactionsPayload = $this->arkClientService->handleListTransactions($this->request);
+        $transactionsPayload = $this->arkClientService->handleRequest($this->request);
 
         return $this->transactionsFactory->buildCollection($transactionsPayload);
     }

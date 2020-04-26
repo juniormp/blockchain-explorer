@@ -21,7 +21,7 @@ class RetrieveBlocksServiceTest extends TestCase
         $collectionBlocks = $this->createMock(CollectionBlocksDTO::class);
         $service = new RetrieveBlocksService($arkClientService, $blocksFactory, $request);
 
-        $arkClientService->expects($this->once())->method('handleListBlocks')->with($request)
+        $arkClientService->expects($this->once())->method('handleRequest')->with($request)
             ->willReturn($blocksPayload);
         $blocksFactory->expects($this->once())->method('buildCollection')->with($blocksPayload)
             ->willReturn($collectionBlocks);

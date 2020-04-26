@@ -26,7 +26,7 @@ class RetrieveBlocksService
     }
 
     public function execute(){
-        $blocksPayload = $this->arkClientService->handleListBlocks($this->request);
+        $blocksPayload = $this->arkClientService->handleRequest($this->request);
 
         return $this->blocksFactory->buildCollection($blocksPayload);
     }

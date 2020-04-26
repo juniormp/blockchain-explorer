@@ -4,7 +4,7 @@
 namespace App\Infrastructure\ExternalData\Requests;
 
 
-class ListBlocksRequest
+class ListBlocksRequest implements IOperationRequest
 {
     const ACTION_URI = 'blocks';
 

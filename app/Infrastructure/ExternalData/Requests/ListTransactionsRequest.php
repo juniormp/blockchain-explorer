@@ -4,7 +4,7 @@
 namespace App\Infrastructure\ExternalData\Requests;
 
 
-class ListTransactionsRequest
+class ListTransactionsRequest implements IOperationRequest
 {
     const ACTION_URI = 'transactions';
 
