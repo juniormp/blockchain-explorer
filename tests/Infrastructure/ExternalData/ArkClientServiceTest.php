@@ -39,7 +39,7 @@ class ArkClientServiceTest extends TestCase
         $action = "fake-action";
 
         $request->shouldReceive('getHttpAction')->andReturn($action);
-        $arkClientApi->expects($this->once())->method('request')->with($request::getHttpAction())
+        $arkClientApi->expects($this->once())->method('request')->with($action)
             ->willThrowException(new TransferException('fake-error'));
 
         $this->expectException(ArkClientApiException::class);

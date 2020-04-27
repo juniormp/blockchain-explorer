@@ -27,7 +27,7 @@ class CollectionTransactionSupportBuilder
             ->setTransactions(collect([self::createTransaction(), self::createTransaction()]));
     }
 
-    private static function createTransaction(): TransactionDTO {
+    public static function createTransaction(): TransactionDTO {
         $transaction = new TransactionDTO();
 
         return $transaction

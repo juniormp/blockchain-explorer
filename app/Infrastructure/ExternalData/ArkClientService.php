@@ -22,7 +22,7 @@ class ArkClientService
     function handleRequest(IOperationRequest $request): array
     {
         try {
-            $action = $request::getHttpAction();
+            $action = $request->getHttpAction();
             return $this->arkClientApi->request($action);
         } catch (TransferException $exception) {
             throw new ArkClientApiException($exception->getMessage());
