@@ -4,11 +4,12 @@
 namespace App\Infrastructure\ExternalData\Requests;
 
 
-class DelegatesRequest implements IOperationRequest
+class DelegatesRequest extends OperationRequest
 {
-    private $action_uri = 'delegates';
+    private const ACTION_URI = 'delegates';
 
-    public function getHttpAction(): string {
-        return $this->action_uri;
+    public function __construct()
+    {
+        parent::__construct(self::ACTION_URI);
     }
 }
