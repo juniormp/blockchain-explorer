@@ -15,7 +15,7 @@ class ArkClientServiceProvider extends ServiceProvider
     {
         $this->app->bind(ArkClientService::class, function () {
             $arkClientApi = new ArkClientApi(new GuzzleClient([
-                'base_uri' => config('services.ark')['host']
+                'base_uri' => config('services.ark')['mainnet']
             ]));
 
             return new ArkClientService($arkClientApi);
