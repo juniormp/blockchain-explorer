@@ -35,9 +35,9 @@ class WalletsCollectionFactory
     private function createWallet(array $walletPayload): WalletDTO{
         $wallet = new WalletDTO();
 
-        return $wallet
+         return $wallet
             ->setAddress($walletPayload['address'])
-            ->setPublicKey(!empty($walletPayload['publicKey']) ?: "")
+            ->setPublicKey($walletPayload['publicKey'])
             ->setNonce($walletPayload['nonce'])
             ->setBalance($walletPayload['balance'])
             ->setIsDelegate($walletPayload['isDelegate'])

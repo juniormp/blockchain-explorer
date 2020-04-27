@@ -31,6 +31,7 @@ return [
     ],
 
     'ark' => [
-        'host'  => env('ARK_HOST'),
+        'mainnet'  => env('ARK_HOST_MAINNET'),
+        'devnet'  => env('ARK_HOST_DEVNET'),
     ],
 ];

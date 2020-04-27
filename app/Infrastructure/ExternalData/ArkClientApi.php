@@ -20,4 +20,11 @@ class ArkClientApi
         $response = $this->httpClient->get($action);
         return json_decode($response->getBody(), true);
     }
+
+    function setDevnet()
+    {
+        $this->httpClient = new GuzzleClient([
+            'base_uri' => config('services.ark')['devnet']
+        ]);
+    }
 }

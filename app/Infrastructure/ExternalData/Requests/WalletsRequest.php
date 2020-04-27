@@ -4,11 +4,12 @@
 namespace App\Infrastructure\ExternalData\Requests;
 
 
-class WalletsRequest implements IOperationRequest
+class WalletsRequest extends OperationRequest
 {
-    private $action_uri = 'wallets';
+    private const ACTION_URI = 'wallets';
 
-    public function getHttpAction(): string {
-        return $this->action_uri;
+    public function __construct()
+    {
+        parent::__construct(self::ACTION_URI);
     }
 }

@@ -4,12 +4,13 @@
 namespace App\Infrastructure\ExternalData\Requests;
 
 
-class ListBlocksRequest implements IOperationRequest
+class ListBlocksRequest extends OperationRequest
 {
-    private $action_uri = 'blocks';
+    private const ACTION_URI = 'blocks';
 
-    public function getHttpAction(): string {
-        return $this->action_uri;
+    public function __construct()
+    {
+        parent::__construct(self::ACTION_URI);
     }
 
     public function withId(string $id) {
