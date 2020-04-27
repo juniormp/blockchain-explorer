@@ -37,7 +37,7 @@ class WalletsCollectionFactory
 
         return $wallet
             ->setAddress($walletPayload['address'])
-            ->setPublicKey($walletPayload['publicKey'])
+            ->setPublicKey(!empty($walletPayload['publicKey']) ?: "")
             ->setNonce($walletPayload['nonce'])
             ->setBalance($walletPayload['balance'])
             ->setIsDelegate($walletPayload['isDelegate'])
