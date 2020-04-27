@@ -16,18 +16,22 @@ class RetrieveBlocksService
     /** @var CollectionBlocksFactory */
     private $blocksFactory;
 
-    /** @var ListBlocksRequest */
-    private $request;
-
-    function __construct(ArkClientService $arkClientService, CollectionBlocksFactory $blocksFactory, ListBlocksRequest $request) {
+    function __construct(ArkClientService $arkClientService, CollectionBlocksFactory $blocksFactory) {
         $this->arkClientService = $arkClientService;
         $this->blocksFactory = $blocksFactory;
-        $this->request = $request;
     }
 
-    public function execute(){
-        $blocksPayload = $this->arkClientService->handleRequest($this->request);
+    public function execute(ListBlocksRequest $request){
+        $blocksPayload = $this->arkClientService->handleRequest($request);
 
-        return $this->blocksFactory->buildCollection($blocksPayload);
+        if ($this->isCollection($blocksPayload)) {
+            return $this->blocksFactory->buildCollection($blocksPayload);
+        } else {
+            return $this->blocksFactory->createBlock($blocksPayload['data']);
+        }
+    }
+
+    private function isCollection(array $blocksPayload): bool {
+        return (count($blocksPayload) > 1) ? true : false;
     }
 }
