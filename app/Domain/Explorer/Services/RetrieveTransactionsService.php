@@ -16,19 +16,22 @@ class RetrieveTransactionsService
     /** @var CollectionsTransactionFactory */
     private $transactionsFactory;
 
-    /** @var ListTransactionsRequest */
-    private $request;
-
-    function __construct(ArkClientService $arkClientService, CollectionsTransactionFactory $transactionsFactory,
-                         ListTransactionsRequest $request) {
+    function __construct(ArkClientService $arkClientService, CollectionsTransactionFactory $transactionsFactory) {
         $this->arkClientService = $arkClientService;
         $this->transactionsFactory = $transactionsFactory;
-        $this->request = $request;
     }
 
-    public function execute(){
-        $transactionsPayload = $this->arkClientService->handleRequest($this->request);
+    public function execute(ListTransactionsRequest $request) {
+        $transactionsPayload = $this->arkClientService->handleRequest($request);
 
-        return $this->transactionsFactory->buildCollection($transactionsPayload);
+        if ($this->isCollection($transactionsPayload)) {
+            return $this->transactionsFactory->buildCollection($transactionsPayload);
+        } else {
+            return $this->transactionsFactory->createTransaction($transactionsPayload['data']);
+        }
+    }
+
+    private function isCollection(array $transactionsPayload): bool {
+        return (count($transactionsPayload) > 1) ? true : false;
     }
 }
