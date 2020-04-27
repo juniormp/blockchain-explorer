@@ -15,4 +15,8 @@ class ListTransactionsRequest implements IOperationRequest
     public function withId(string $id) {
         $this->action_uri = $this->action_uri . '/' . $id;
     }
+
+    public function withWalletAddress(string $address) {
+        $this->action_uri = 'wallets' . '/' . $address . '/transactions';
+    }
 }
