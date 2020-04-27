@@ -30,7 +30,7 @@ class CollectionBlocksSupportBuilder
             ->setBlocks(collect([self::createBlock(), self::createBlock()]));
     }
 
-    private static function createBlock(): BlockDTO
+    public static function createBlock(): BlockDTO
     {
         $block = new BlockDTO();
 

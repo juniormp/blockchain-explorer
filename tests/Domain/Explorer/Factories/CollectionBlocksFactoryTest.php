@@ -9,7 +9,7 @@ use Tests\Support\Builders\CollectionBlocksSupportBuilder;
 use Tests\Support\ListBlocksMock;
 use Tests\TestCase;
 
-class CollectionBlocksFactoriesTest extends TestCase
+class CollectionBlocksFactoryTest extends TestCase
 {
     public function test_it_creates_collection_blocks(){
         $factory = new CollectionBlocksFactory();
