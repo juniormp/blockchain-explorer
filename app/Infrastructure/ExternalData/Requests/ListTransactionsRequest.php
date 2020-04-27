@@ -4,12 +4,13 @@
 namespace App\Infrastructure\ExternalData\Requests;
 
 
-class ListTransactionsRequest implements IOperationRequest
+class ListTransactionsRequest extends OperationRequest
 {
-    private $action_uri = 'transactions';
+    private const ACTION_URI = 'transactions';
 
-    public function getHttpAction(): string {
-        return $this->action_uri;
+    public function __construct()
+    {
+        parent::__construct(self::ACTION_URI);
     }
 
     public function withId(string $id) {
