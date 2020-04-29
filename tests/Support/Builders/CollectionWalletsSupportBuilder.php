@@ -33,7 +33,6 @@ class CollectionWalletsSupportBuilder
 
         return $wallet
             ->setAddress('AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK')
-            ->setPublicKey('02ff171adaef486b7db9fc160b28433d20cf43163d56fd28fee72145f0d5219a4b')
             ->setNonce('123102')
             ->setBalance('691647933769922')
             ->setIsDelegate(false)
