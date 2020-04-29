@@ -10,25 +10,13 @@ class BlockDTO
     public $id;
 
     /** @var integer */
-    public $version;
-
-    /** @var integer */
     public $height;
-
-    /** @var string */
-    public $previous;
 
     /** @var ForgedDTO */
     public $forged;
 
-    /** @var PayloadDTO */
-    public $payload;
-
-    /** @var GeneratorDTO */
+    /** @var string */ // username
     public $generator;
-
-    /** @var string */
-    public $signature;
 
     /** @var int */
     public $confirmations;
@@ -36,18 +24,12 @@ class BlockDTO
     /** @var int */
     public $transactions;
 
-    /** @var TimestampDTO */
+    /** @var string */ // human
     public $timestamp;
 
     public function setId(string $id): BlockDTO
     {
         $this->id = $id;
-        return $this;
-    }
-
-    public function setVersion(int $version): BlockDTO
-    {
-        $this->version = $version;
         return $this;
     }
 
@@ -57,33 +39,15 @@ class BlockDTO
         return $this;
     }
 
-    public function setPrevious(string $previous): BlockDTO
-    {
-        $this->previous = $previous;
-        return $this;
-    }
-
     public function setForged(ForgedDTO $forged): BlockDTO
     {
         $this->forged = $forged;
         return $this;
     }
 
-    public function setPayload(PayloadDTO $payload): BlockDTO
-    {
-        $this->payload = $payload;
-        return $this;
-    }
-
-    public function setGenerator(GeneratorDTO $generator): BlockDTO
+    public function setGenerator(string $generator): BlockDTO
     {
         $this->generator = $generator;
-        return $this;
-    }
-
-    public function setSignature(string $signature): BlockDTO
-    {
-        $this->signature = $signature;
         return $this;
     }
 
@@ -99,12 +63,7 @@ class BlockDTO
         return $this;
     }
 
-    public function getTimestamp(): TimestampDTO
-    {
-        return $this->timestamp;
-    }
-
-    public function setTimestamp(TimestampDTO $timestamp): BlockDTO
+    public function setTimestamp(string $timestamp): BlockDTO
     {
         $this->timestamp = $timestamp;
         return $this;
