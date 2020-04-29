@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('list-transactions', 'TransactionsController@listTransactions');
+Route::get('transaction-details/{id}', 'TransactionsController@transactionDetails');
