@@ -3,9 +3,7 @@
         @livewireStyles
     </head>
     <body>
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-        @livewire('transactions-list')
+        @livewire('foo')
 
         @livewireScripts
     </body>
