@@ -7,37 +7,27 @@ namespace App\Domain\Explorer\Models;
 class DelegateDTO
 {
     /** @var string */
-    private $username;
+    public $username;
 
     /** @var string */
-    private $address;
+    public $address;
 
     /** @var string */
-    private $publicKey;
+    public $publicKey;
 
     /** @var string */
-    private $votes;
+    public $votes;
 
     /** @var int */
-    private $rank;
+    public $rank;
 
     /** @var bool */
-    private $isResigned;
-
-    public function getUsername(): string
-    {
-        return $this->username;
-    }
+    public $isResigned;
 
     public function setUsername(string $username): DelegateDTO
     {
         $this->username = $username;
         return $this;
-    }
-
-    public function getAddress(): string
-    {
-        return $this->address;
     }
 
     public function setAddress(string $address): DelegateDTO
@@ -46,20 +36,10 @@ class DelegateDTO
         return $this;
     }
 
-    public function getPublicKey(): string
-    {
-        return $this->publicKey;
-    }
-
     public function setPublicKey(string $publicKey): DelegateDTO
     {
         $this->publicKey = $publicKey;
         return $this;
-    }
-
-    public function getVotes(): string
-    {
-        return $this->votes;
     }
 
     public function setVotes(string $votes): DelegateDTO
@@ -68,20 +48,10 @@ class DelegateDTO
         return $this;
     }
 
-    public function getRank(): int
-    {
-        return $this->rank;
-    }
-
     public function setRank(int $rank): DelegateDTO
     {
         $this->rank = $rank;
         return $this;
-    }
-
-    public function isResigned(): bool
-    {
-        return $this->isResigned;
     }
 
     public function setIsResigned(bool $isResigned): DelegateDTO
