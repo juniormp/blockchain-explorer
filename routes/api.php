@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Http\Request;
@@ -16,3 +17,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('list-transactions', 'TransactionsController@listTransactions');
+Route::get('transaction-details/{id}', 'TransactionsController@transactionDetails');
+
+Route::get('list-blocks', 'BlocksController@listBlocks');
+Route::get('block-details/{id}', 'BlocksController@blockDetails');
+
+Route::get('list-wallets', 'WalletsController@listWallets');
+
+Route::get('list-delegates', 'DelegatesController@listDelegates');

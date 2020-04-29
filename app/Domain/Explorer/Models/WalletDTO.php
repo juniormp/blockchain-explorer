@@ -7,22 +7,19 @@ namespace App\Domain\Explorer\Models;
 class WalletDTO
 {
     /** @var string */
-    private $address;
+    public $address;
 
     /** @var string */
-    private $publicKey;
+    public $nonce;
 
     /** @var string */
-    private $nonce;
-
-    /** @var string */
-    private $balance;
+    public $balance;
 
     /** @var bool */
-    private $isDelegate;
+    public $isDelegate;
 
     /** @var bool */
-    private $isResigned;
+    public $isResigned;
 
     public function getAddress(): string
     {
@@ -35,31 +32,10 @@ class WalletDTO
         return $this;
     }
 
-    public function getPublicKey(): string
-    {
-        return $this->publicKey;
-    }
-
-    public function setPublicKey(string $publicKey): WalletDTO
-    {
-        $this->publicKey = $publicKey;
-        return $this;
-    }
-
-    public function getNonce(): string
-    {
-        return $this->nonce;
-    }
-
     public function setNonce(string $nonce): WalletDTO
     {
         $this->nonce = $nonce;
         return $this;
-    }
-
-    public function getBalance(): string
-    {
-        return $this->balance;
     }
 
     public function setBalance(string $balance): WalletDTO
@@ -68,20 +44,10 @@ class WalletDTO
         return $this;
     }
 
-    public function isDelegate(): bool
-    {
-        return $this->isDelegate;
-    }
-
     public function setIsDelegate(bool $isDelegate): WalletDTO
     {
         $this->isDelegate = $isDelegate;
         return $this;
-    }
-
-    public function isResigned(): bool
-    {
-        return $this->isResigned;
     }
 
     public function setIsResigned(bool $isResigned): WalletDTO
