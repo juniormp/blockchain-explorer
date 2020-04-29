@@ -4,16 +4,17 @@
 namespace App\Infrastructure\ExternalData\Requests;
 
 
-class ListTransactionsRequest extends OperationRequest
+class TransactionRequestCommand extends OperationRequest
 {
-    private const ACTION_URI = 'transactions';
+    protected $action_uri;
 
     public function __construct()
     {
-        parent::__construct(self::ACTION_URI);
+        $this->action_uri = config('services.ark')['uri_transaction'];
+        parent::__construct($this->action_uri);
     }
 
-    public function withId(string $id) {
+    public function byId(string $id) {
         $this->action_uri = $this->action_uri . '/' . $id;
     }
 

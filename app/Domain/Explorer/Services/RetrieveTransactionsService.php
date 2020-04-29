@@ -6,7 +6,7 @@ namespace App\Domain\Explorer\Services;
 
 use App\Domain\Explorer\Factories\CollectionsTransactionFactory;
 use App\Infrastructure\ExternalData\ArkClientService;
-use App\Infrastructure\ExternalData\Requests\ListTransactionsRequest;
+use App\Infrastructure\ExternalData\Requests\TransactionRequestCommand;
 
 class RetrieveTransactionsService
 {
@@ -21,7 +21,7 @@ class RetrieveTransactionsService
         $this->transactionsFactory = $transactionsFactory;
     }
 
-    public function execute(ListTransactionsRequest $request) {
+    public function execute(TransactionRequestCommand $request) {
         $transactionsPayload = $this->arkClientService->handleRequest($request);
 
         if ($this->isCollection($transactionsPayload)) {

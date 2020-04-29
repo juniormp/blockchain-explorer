@@ -33,5 +33,6 @@ return [
     'ark' => [
         'mainnet'  => env('ARK_HOST_MAINNET'),
         'devnet'  => env('ARK_HOST_DEVNET'),
+        'uri_transaction' => env('ARK_URI_TRANSACTION')
     ],
 ];

@@ -9,7 +9,7 @@ use App\Domain\Explorer\Models\CollectionsTransactionDTO;
 use App\Domain\Explorer\Models\TransactionDTO;
 use App\Domain\Explorer\Services\RetrieveTransactionsService;
 use App\Infrastructure\ExternalData\ArkClientService;
-use App\Infrastructure\ExternalData\Requests\ListTransactionsRequest;
+use App\Infrastructure\ExternalData\Requests\TransactionRequestCommand;
 use Tests\TestCase;
 
 class RetrieveTransactionsServiceTest extends TestCase
@@ -17,7 +17,7 @@ class RetrieveTransactionsServiceTest extends TestCase
     public function test_it_returns_transactions_list(){
         $arkClientService = $this->createMock(ArkClientService::class);
         $transactionFactory = $this->createMock(CollectionsTransactionFactory::class);
-        $request = new ListTransactionsRequest();
+        $request = new TransactionRequestCommand();
         $transactionPayload = ["fake-payload-response", "fake-payload-response"];
         $collectionTransactions = $this->createMock(CollectionsTransactionDTO::class);
         $service = new RetrieveTransactionsService($arkClientService, $transactionFactory);
@@ -35,7 +35,7 @@ class RetrieveTransactionsServiceTest extends TestCase
     public function test_it_returns_transaction(){
         $arkClientService = $this->createMock(ArkClientService::class);
         $transactionFactory = $this->createMock(CollectionsTransactionFactory::class);
-        $request = new ListTransactionsRequest();
+        $request = new TransactionRequestCommand();
         $transactionPayload = [ "data" => ["fake-payload-response"]];
         $transaction = $this->createMock(TransactionDTO::class);
         $service = new RetrieveTransactionsService($arkClientService, $transactionFactory);
