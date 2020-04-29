@@ -36,7 +36,7 @@ class ListBlocksMock
                     "length" => 0
                 ],
                 "generator" => [
-                    "username" => "doc",
+                    "username" => "dutchdelegate",
                     "address" => "AR2iXnLRp9HuoT584m6tjNWLHGWdX8uuGK",
                     "publicKey" => "03cefbfa0c1c853084591b62a9aad0116029eaebdc27c2e3b811b1b0aebb928fc6"],
                 "signature" => "3045022100f4a1720135345c202011fa5365d8b1888da70ea8aa6e295ca0e499760553e7bb022008469b0e54080ddaa3a4d08c7fa6aafcd4a949e4d4e8c220c81a4c7b6c0ff4ca",
@@ -63,7 +63,7 @@ class ListBlocksMock
                     "length" => 0
                 ],
                 "generator" => [
-                    "username" => "doc",
+                    "username" => "dutchdelegate",
                     "address" => "AR2iXnLRp9HuoT584m6tjNWLHGWdX8uuGK",
                     "publicKey" => "03cefbfa0c1c853084591b62a9aad0116029eaebdc27c2e3b811b1b0aebb928fc6"],
                 "signature" => "3045022100f4a1720135345c202011fa5365d8b1888da70ea8aa6e295ca0e499760553e7bb022008469b0e54080ddaa3a4d08c7fa6aafcd4a949e4d4e8c220c81a4c7b6c0ff4ca",
