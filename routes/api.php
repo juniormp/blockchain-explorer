@@ -23,3 +23,5 @@ Route::get('transaction-details/{id}', 'TransactionsController@transactionDetail
 
 Route::get('list-blocks', 'BlocksController@listBlocks');
 Route::get('block-details/{id}', 'BlocksController@blockDetails');
+
+Route::get('list-wallets', 'WalletsController@listWallets');
