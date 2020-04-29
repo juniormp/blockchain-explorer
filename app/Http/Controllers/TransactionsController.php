@@ -22,4 +22,12 @@ class TransactionsController extends Controller
 
         return json_encode($response->getTransactions(), true);
     }
+
+    public function transactionDetails(string $id): string {
+        $request = new ListTransactionsRequest();
+        $request->withId($id);
+        $response = $this->retrieveTransactionsService->execute($request);
+
+        return json_encode($response, true);
+    }
 }
