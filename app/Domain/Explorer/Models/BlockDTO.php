@@ -7,52 +7,42 @@ namespace App\Domain\Explorer\Models;
 class BlockDTO
 {
     /** @var string */
-    private $id;
+    public $id;
 
     /** @var integer */
-    private $version;
+    public $version;
 
     /** @var integer */
-    private $height;
+    public $height;
 
     /** @var string */
-    private $previous;
+    public $previous;
 
     /** @var ForgedDTO */
-    private $forged;
+    public $forged;
 
     /** @var PayloadDTO */
-    private $payload;
+    public $payload;
 
     /** @var GeneratorDTO */
-    private $generator;
+    public $generator;
 
     /** @var string */
-    private $signature;
+    public $signature;
 
     /** @var int */
-    private $confirmations;
+    public $confirmations;
 
     /** @var int */
-    private $transactions;
+    public $transactions;
 
     /** @var TimestampDTO */
-    private $timestamp;
-
-    public function getId(): string
-    {
-        return $this->id;
-    }
+    public $timestamp;
 
     public function setId(string $id): BlockDTO
     {
         $this->id = $id;
         return $this;
-    }
-
-    public function getVersion(): int
-    {
-        return $this->version;
     }
 
     public function setVersion(int $version): BlockDTO
@@ -61,20 +51,10 @@ class BlockDTO
         return $this;
     }
 
-    public function getHeight(): int
-    {
-        return $this->height;
-    }
-
     public function setHeight(int $height): BlockDTO
     {
         $this->height = $height;
         return $this;
-    }
-
-    public function getPrevious(): string
-    {
-        return $this->previous;
     }
 
     public function setPrevious(string $previous): BlockDTO
@@ -83,20 +63,10 @@ class BlockDTO
         return $this;
     }
 
-    public function getForged(): ForgedDTO
-    {
-        return $this->forged;
-    }
-
     public function setForged(ForgedDTO $forged): BlockDTO
     {
         $this->forged = $forged;
         return $this;
-    }
-
-    public function getPayload(): PayloadDTO
-    {
-        return $this->payload;
     }
 
     public function setPayload(PayloadDTO $payload): BlockDTO
@@ -105,20 +75,10 @@ class BlockDTO
         return $this;
     }
 
-    public function getGenerator(): GeneratorDTO
-    {
-        return $this->generator;
-    }
-
     public function setGenerator(GeneratorDTO $generator): BlockDTO
     {
         $this->generator = $generator;
         return $this;
-    }
-
-    public function getSignature(): string
-    {
-        return $this->signature;
     }
 
     public function setSignature(string $signature): BlockDTO
@@ -127,20 +87,10 @@ class BlockDTO
         return $this;
     }
 
-    public function getConfirmations(): int
-    {
-        return $this->confirmations;
-    }
-
     public function setConfirmations(int $confirmations): BlockDTO
     {
         $this->confirmations = $confirmations;
         return $this;
-    }
-
-    public function getTransactions(): int
-    {
-        return $this->transactions;
     }
 
     public function setTransactions(int $transactions): BlockDTO
