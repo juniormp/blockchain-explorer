@@ -15,6 +15,9 @@ class WalletDTO
     /** @var string */
     public $balance;
 
+    /** @var string */
+    public $vote;
+
     /** @var bool */
     public $isDelegate;
 
@@ -44,6 +47,12 @@ class WalletDTO
         return $this;
     }
 
+    public function setVote(string $vote): WalletDTO
+    {
+        $this->vote = $vote;
+        return $this;
+    }
+
     public function setIsDelegate(bool $isDelegate): WalletDTO
     {
         $this->isDelegate = $isDelegate;
@@ -54,5 +63,10 @@ class WalletDTO
     {
         $this->isResigned = $isResigned;
         return $this;
+    }
+
+    public function votingFor(): string
+    {
+        return $this->vote;
     }
 }
