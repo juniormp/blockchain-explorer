@@ -20,7 +20,7 @@ class WalletsController extends Controller
         $request = new WalletsRequestCommand();
         $response = $this->retrieveWalletsService->execute($request);
 
-        return json_encode($response->getWallets(), true);
+        return json_encode($response, true);
     }
 
     public function votingFor($address): string {

@@ -39,6 +39,6 @@ class TransactionsController extends Controller
 
         $response = $this->retrieveTransactionsService->execute($request);
 
-        return json_encode($response->getTransactions(), true);
+        return json_encode($response, true);
     }
 }
