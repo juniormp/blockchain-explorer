@@ -8,7 +8,7 @@ use App\Domain\Explorer\Factories\WalletsCollectionFactory;
 use App\Domain\Explorer\Models\CollectionsWalletDTO;
 use App\Domain\Explorer\Services\RetrieveWalletsService;
 use App\Infrastructure\ExternalData\ArkClientService;
-use App\Infrastructure\ExternalData\Requests\WalletsRequest;
+use App\Infrastructure\ExternalData\Requests\WalletsRequestCommand;
 use Tests\TestCase;
 
 class RetrieveWalletsServiceTest extends TestCase
@@ -16,7 +16,7 @@ class RetrieveWalletsServiceTest extends TestCase
     public function test_it_returns_wallets_list(){
         $arkClientService = $this->createMock(ArkClientService::class);
         $walletsFactory = $this->createMock(WalletsCollectionFactory::class);
-        $request = new WalletsRequest();
+        $request = new WalletsRequestCommand();
         $walletsPayload = ["fake-payload-response", "fake-payload-response"];
         $walletCollections = $this->createMock(CollectionsWalletDTO::class);
         $service = new RetrieveWalletsService($arkClientService, $walletsFactory);

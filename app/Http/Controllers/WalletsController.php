@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Domain\Explorer\Services\RetrieveWalletsService;
-use App\Infrastructure\ExternalData\Requests\WalletsRequest;
+use App\Infrastructure\ExternalData\Requests\WalletsRequestCommand;
 
 class WalletsController extends Controller
 {
@@ -17,7 +17,7 @@ class WalletsController extends Controller
     }
 
     public function listWallets(): string {
-        $request = new WalletsRequest();
+        $request = new WalletsRequestCommand();
         $response = $this->retrieveWalletsService->execute($request);
 
         return json_encode($response->getWallets(), true);
