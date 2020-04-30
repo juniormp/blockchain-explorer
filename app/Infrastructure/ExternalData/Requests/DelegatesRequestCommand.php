@@ -6,10 +6,11 @@ namespace App\Infrastructure\ExternalData\Requests;
 
 class DelegatesRequestCommand extends OperationRequest
 {
-    private const ACTION_URI = 'delegates';
+    protected $action_uri;
 
     public function __construct()
     {
-        parent::__construct(self::ACTION_URI);
+        $this->action_uri = config('services.ark')['uri_delegate'];
+        parent::__construct($this->action_uri);
     }
 }
