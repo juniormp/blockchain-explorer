@@ -5,11 +5,11 @@ namespace Tests\Domain\Explorer\Services;
 
 
 use App\Domain\Explorer\Factories\WalletsCollectionFactory;
-use App\Domain\Explorer\Models\CollectionsWalletDTO;
 use App\Domain\Explorer\Models\WalletDTO;
 use App\Domain\Explorer\Services\RetrieveWalletsService;
 use App\Infrastructure\ExternalData\ArkClientService;
 use App\Infrastructure\ExternalData\Requests\WalletsRequestCommand;
+use Illuminate\Support\Collection;
 use Tests\TestCase;
 
 class RetrieveWalletsServiceTest extends TestCase
@@ -19,7 +19,7 @@ class RetrieveWalletsServiceTest extends TestCase
         $walletsFactory = $this->createMock(WalletsCollectionFactory::class);
         $request = new WalletsRequestCommand();
         $walletsPayload = ["fake-payload-response", "fake-payload-response"];
-        $walletCollections = $this->createMock(CollectionsWalletDTO::class);
+        $walletCollections = $this->createMock(Collection::class);
         $service = new RetrieveWalletsService($arkClientService, $walletsFactory);
 
         $arkClientService->expects($this->once())->method('handleRequest')->with($request)
