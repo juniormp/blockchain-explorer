@@ -4,7 +4,7 @@
 namespace App\Infrastructure\ExternalData\Requests;
 
 
-class DelegatesRequest extends OperationRequest
+class DelegatesRequestCommand extends OperationRequest
 {
     private const ACTION_URI = 'delegates';
 
