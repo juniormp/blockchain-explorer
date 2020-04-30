@@ -18,14 +18,6 @@ class CollectionsTransactionFactory extends TransactionFactory
         }
 
         $collectionTransactions
-            ->setTotalCountIsEstimate($response['meta']['totalCountIsEstimate'])
-            ->setCount($response['meta']['count'])
-            ->setPageCount($response['meta']['pageCount'])
-            ->setTotalCount($response['meta']['totalCount'])
-            ->setPrevious(!empty($response['meta']['previous']) ?: "")
-            ->setSelf($response['meta']['self'])
-            ->setFirst($response['meta']['first'])
-            ->setLast($response['meta']['last'])
             ->setTransactions($transactionsList);
 
         return $collectionTransactions;

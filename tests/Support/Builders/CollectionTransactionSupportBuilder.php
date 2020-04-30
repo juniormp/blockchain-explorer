@@ -15,14 +15,6 @@ class CollectionTransactionSupportBuilder
         $collections = new CollectionsTransactionDTO();
 
         return $collections
-            ->setTotalCountIsEstimate(true)
-            ->setCount(100)
-            ->setPageCount(40366)
-            ->setTotalCount(4036503)
-            ->setPrevious("")
-            ->setSelf("/transactions?transform=true&page=1&limit=100")
-            ->setFirst("/transactions?transform=true&page=1&limit=100")
-            ->setLast("/transactions?transform=true&page=40366&limit=100")
             ->setTransactions(collect([self::createTransaction(), self::createTransaction()]));
     }
 
