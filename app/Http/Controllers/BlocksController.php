@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Domain\Explorer\Services\RetrieveBlocksService;
-use App\Infrastructure\ExternalData\Requests\ListBlocksRequest;
+use App\Infrastructure\ExternalData\Requests\BlockRequestCommand;
 
 class BlocksController extends Controller
 {
@@ -17,15 +17,15 @@ class BlocksController extends Controller
     }
 
     public function listBlocks(): string {
-        $request = new ListBlocksRequest();
+        $request = new BlockRequestCommand();
         $response = $this->retrieveBlocksService->execute($request);
 
         return json_encode($response->getBlocks(), true);
     }
 
     public function blockDetails(string $id): string {
-        $request = new ListBlocksRequest();
-        $request->withId($id);
+        $request = new BlockRequestCommand();
+        $request->byId($id);
         $response = $this->retrieveBlocksService->execute($request);
 
         return json_encode($response, true);

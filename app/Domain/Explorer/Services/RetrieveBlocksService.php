@@ -6,7 +6,7 @@ namespace App\Domain\Explorer\Services;
 
 use App\Domain\Explorer\Factories\CollectionBlocksFactory;
 use App\Infrastructure\ExternalData\ArkClientService;
-use App\Infrastructure\ExternalData\Requests\ListBlocksRequest;
+use App\Infrastructure\ExternalData\Requests\BlockRequestCommand;
 
 class RetrieveBlocksService
 {
@@ -21,7 +21,7 @@ class RetrieveBlocksService
         $this->blocksFactory = $blocksFactory;
     }
 
-    public function execute(ListBlocksRequest $request){
+    public function execute(BlockRequestCommand $request){
         $blocksPayload = $this->arkClientService->handleRequest($request);
 
         if ($this->isCollection($blocksPayload)) {

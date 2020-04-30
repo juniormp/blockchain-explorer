@@ -4,13 +4,13 @@
 namespace Tests\Infrastructure\Request;
 
 
-use App\Infrastructure\ExternalData\Requests\ListBlocksRequest;
+use App\Infrastructure\ExternalData\Requests\BlockRequestCommand;
 use Tests\TestCase;
 
 class ListBlockRequestTest extends TestCase
 {
     public function test_it_returns_action_list_blocks_uri(){
-        $request = new ListBlocksRequest();
+        $request = new BlockRequestCommand();
 
         $this->assertEquals('blocks', $request->getHttpAction());
     }
