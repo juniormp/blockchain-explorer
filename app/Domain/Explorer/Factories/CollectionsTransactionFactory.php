@@ -22,7 +22,6 @@ class CollectionsTransactionFactory extends TransactionFactory
             ->setCount($response['meta']['count'])
             ->setPageCount($response['meta']['pageCount'])
             ->setTotalCount($response['meta']['totalCount'])
-            ->setNext($response['meta']['next'])
             ->setPrevious(!empty($response['meta']['previous']) ?: "")
             ->setSelf($response['meta']['self'])
             ->setFirst($response['meta']['first'])
