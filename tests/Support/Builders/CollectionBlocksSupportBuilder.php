@@ -5,29 +5,15 @@ namespace Tests\Support\Builders;
 
 
 use App\Domain\Explorer\Models\BlockDTO;
-use App\Domain\Explorer\Models\CollectionBlocksDTO;
 use App\Domain\Explorer\Models\ForgedDTO;
-use App\Domain\Explorer\Models\GeneratorDTO;
-use App\Domain\Explorer\Models\PayloadDTO;
-use App\Domain\Explorer\Models\TimestampDTO;
+use Illuminate\Support\Collection;
+
 
 class CollectionBlocksSupportBuilder
 {
-    public static function buildDefault(): CollectionBlocksDTO
+    public static function buildDefault(): Collection
     {
-        $blocks = new CollectionBlocksDTO();
-
-        return $blocks
-            ->setTotalCountIsEstimate(false)
-            ->setCount(100)
-            ->setPageCount(120785)
-            ->setTotalCount(12078473)
-            ->setNext("/blocks?transform=true&page=2&limit=100")
-            ->setPrevious("")
-            ->setSelf("/blocks?transform=true&page=1&limit=100")
-            ->setFirst("/blocks?transform=true&page=1&limit=100")
-            ->setLast("/blocks?transform=true&page=120785&limit=100")
-            ->setBlocks(collect([self::createBlock(), self::createBlock()]));
+        return collect([self::createBlock(), self::createBlock()]);
     }
 
     public static function createBlock(): BlockDTO

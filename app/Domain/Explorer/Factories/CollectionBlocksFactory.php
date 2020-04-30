@@ -4,12 +4,13 @@
 namespace App\Domain\Explorer\Factories;
 
 
-use App\Domain\Explorer\Models\CollectionBlocksDTO;
+
+
+use Illuminate\Support\Collection;
 
 class CollectionBlocksFactory extends BlockFactory
 {
-    public function buildCollection(array $response): CollectionBlocksDTO {
-        $collectionBlocks = new CollectionBlocksDTO();
+    public function buildCollection(array $response): Collection {
         $blocksList = collect();
 
         foreach ($response['data'] as $blockPayload){
@@ -17,20 +18,6 @@ class CollectionBlocksFactory extends BlockFactory
             $blocksList->push($block);
         }
 
-
-        $collectionBlocks
-            ->setTotalCountIsEstimate($response['meta']['totalCountIsEstimate'])
-            ->setCount($response['meta']['count'])
-            ->setPageCount($response['meta']['pageCount'])
-            ->setTotalCount($response['meta']['totalCount'])
-            ->setNext($response['meta']['next'])
-            ->setPrevious(!empty($response['meta']['previous']) ?: "")
-            ->setSelf($response['meta']['self'])
-            ->setFirst($response['meta']['first'])
-            ->setLast($response['meta']['last'])
-            ->setBlocks($blocksList);
-
-        return $collectionBlocks;
+        return $blocksList;
     }
-
 }
