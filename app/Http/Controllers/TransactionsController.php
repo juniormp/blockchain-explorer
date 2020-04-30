@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Domain\Explorer\Services\RetrieveTransactionsService;
 use App\Infrastructure\ExternalData\Requests\TransactionRequestCommand;
+use App\Infrastructure\ExternalData\Requests\WalletsRequestCommand;
 
 class TransactionsController extends Controller
 {
@@ -30,5 +31,14 @@ class TransactionsController extends Controller
         $response = $this->retrieveTransactionsService->execute($request);
 
         return json_encode($response, true);
+    }
+
+    public function walletTransactions(string $address): string {
+        $request = new WalletsRequestCommand();
+        $request->transactionsFromAddress($address);
+
+        $response = $this->retrieveTransactionsService->execute($request);
+
+        return json_encode($response->getTransactions(), true);
     }
 }
