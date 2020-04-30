@@ -17,8 +17,4 @@ class TransactionRequestCommand extends OperationRequest
     public function byId(string $id) {
         $this->action_uri = $this->action_uri . '/' . $id;
     }
-
-    public function byWalletAddress(string $address) {
-        $this->action_uri = 'wallets' . '/' . $address . '/transactions';
-    }
 }

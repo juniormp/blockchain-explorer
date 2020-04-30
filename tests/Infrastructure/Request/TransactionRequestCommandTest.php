@@ -22,12 +22,4 @@ class TransactionRequestCommandTest extends TestCase
 
         $this->assertEquals('transactions/100', $request->getHttpAction());
     }
-
-    public function test_it_returns_transaction_by_wallet_address(){
-        $request = new TransactionRequestCommand();
-
-        $request->byWalletAddress("a1b1c1d1");
-
-        $this->assertEquals('wallets/a1b1c1d1/transactions', $request->getHttpAction());
-    }
 }

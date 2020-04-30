@@ -19,7 +19,6 @@ class CollectionTransactionSupportBuilder
             ->setCount(100)
             ->setPageCount(40366)
             ->setTotalCount(4036503)
-            ->setNext("/transactions?transform=true&page=2&limit=100")
             ->setPrevious("")
             ->setSelf("/transactions?transform=true&page=1&limit=100")
             ->setFirst("/transactions?transform=true&page=1&limit=100")
