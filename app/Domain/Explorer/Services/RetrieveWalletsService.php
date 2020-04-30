@@ -26,6 +26,14 @@ class RetrieveWalletsService
     {
         $walletsPayload = $this->arkClientService->handleRequest($request);
 
-        return $this->walletsFactory->buildCollection($walletsPayload);
+        if ($this->isCollection($walletsPayload)) {
+            return $this->walletsFactory->buildCollection($walletsPayload);
+        } else {
+            return $this->walletsFactory->createWallet($walletsPayload['data']);
+        }
+    }
+
+    private function isCollection(array $transactionsPayload): bool {
+        return (count($transactionsPayload) > 1) ? true : false;
     }
 }
