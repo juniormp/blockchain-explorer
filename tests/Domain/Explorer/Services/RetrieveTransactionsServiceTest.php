@@ -4,7 +4,7 @@
 namespace Tests\Domain\Explorer\Services;
 
 
-use App\Domain\Explorer\Factories\CollectionsTransactionFactory;
+use App\Domain\Explorer\Factories\TransactionsCollectionFactory;
 use App\Domain\Explorer\Models\CollectionsTransactionDTO;
 use App\Domain\Explorer\Models\TransactionDTO;
 use App\Domain\Explorer\Services\RetrieveTransactionsService;
@@ -16,7 +16,7 @@ class RetrieveTransactionsServiceTest extends TestCase
 {
     public function test_it_returns_transactions_list(){
         $arkClientService = $this->createMock(ArkClientService::class);
-        $transactionFactory = $this->createMock(CollectionsTransactionFactory::class);
+        $transactionFactory = $this->createMock(TransactionsCollectionFactory::class);
         $request = new TransactionRequestCommand();
         $transactionPayload = ["fake-payload-response", "fake-payload-response"];
         $collectionTransactions = $this->createMock(CollectionsTransactionDTO::class);
@@ -34,7 +34,7 @@ class RetrieveTransactionsServiceTest extends TestCase
 
     public function test_it_returns_transaction(){
         $arkClientService = $this->createMock(ArkClientService::class);
-        $transactionFactory = $this->createMock(CollectionsTransactionFactory::class);
+        $transactionFactory = $this->createMock(TransactionsCollectionFactory::class);
         $request = new TransactionRequestCommand();
         $transactionPayload = [ "data" => ["fake-payload-response"]];
         $transaction = $this->createMock(TransactionDTO::class);

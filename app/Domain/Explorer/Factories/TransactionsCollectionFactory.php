@@ -6,7 +6,7 @@ namespace App\Domain\Explorer\Factories;
 
 use App\Domain\Explorer\Models\CollectionsTransactionDTO;
 
-class CollectionsTransactionFactory extends TransactionFactory
+class TransactionsCollectionFactory extends TransactionFactory
 {
     public function buildCollection(array $response): CollectionsTransactionDTO {
         $collectionTransactions = new CollectionsTransactionDTO();

@@ -5,7 +5,6 @@ namespace Tests\Support\Builders;
 
 
 use App\Domain\Explorer\Models\CollectionsTransactionDTO;
-use App\Domain\Explorer\Models\TimestampDTO;
 use App\Domain\Explorer\Models\TransactionDTO;
 
 class CollectionTransactionSupportBuilder
