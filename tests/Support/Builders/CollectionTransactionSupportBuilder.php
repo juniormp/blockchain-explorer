@@ -4,26 +4,14 @@
 namespace Tests\Support\Builders;
 
 
-use App\Domain\Explorer\Models\CollectionsTransactionDTO;
-use App\Domain\Explorer\Models\TimestampDTO;
 use App\Domain\Explorer\Models\TransactionDTO;
+use Illuminate\Support\Collection;
 
 class CollectionTransactionSupportBuilder
 {
-    public static function buildDefault(): CollectionsTransactionDTO
+    public static function buildDefault(): Collection
     {
-        $collections = new CollectionsTransactionDTO();
-
-        return $collections
-            ->setTotalCountIsEstimate(true)
-            ->setCount(100)
-            ->setPageCount(40366)
-            ->setTotalCount(4036503)
-            ->setPrevious("")
-            ->setSelf("/transactions?transform=true&page=1&limit=100")
-            ->setFirst("/transactions?transform=true&page=1&limit=100")
-            ->setLast("/transactions?transform=true&page=40366&limit=100")
-            ->setTransactions(collect([self::createTransaction(), self::createTransaction()]));
+        return (collect([self::createTransaction(), self::createTransaction()]));
     }
 
     public static function createTransaction(): TransactionDTO {

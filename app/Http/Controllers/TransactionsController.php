@@ -21,7 +21,7 @@ class TransactionsController extends Controller
         $request = new TransactionRequestCommand();
         $response = $this->retrieveTransactionsService->execute($request);
 
-        return json_encode($response->getTransactions(), true);
+        return json_encode($response, true);
     }
 
     public function transactionDetails(string $id): string {
