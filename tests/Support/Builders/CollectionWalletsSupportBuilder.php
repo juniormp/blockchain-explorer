@@ -34,6 +34,7 @@ class CollectionWalletsSupportBuilder
         return $wallet
             ->setAddress('AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK')
             ->setNonce('123102')
+            ->setVote('0217ff1ec656f2354a899bde097bb3131a9730fe491bb87dedb96489120be9154f')
             ->setBalance('691647933769922')
             ->setIsDelegate(false)
             ->setIsResigned(false);

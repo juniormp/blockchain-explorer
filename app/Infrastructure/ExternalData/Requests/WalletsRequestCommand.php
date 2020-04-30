@@ -14,8 +14,8 @@ class WalletsRequestCommand extends OperationRequest
         parent::__construct($this->action_uri);
     }
 
-    public function byId(string $id) {
-        $this->action_uri = $this->action_uri . '/' . $id;
+    public function byAddress(string $address) {
+        $this->action_uri = $this->action_uri . '/' . $address;
     }
 
     public function transactionsFromAddress(string $address) {

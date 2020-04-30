@@ -31,6 +31,7 @@ Route::prefix('blocks')->group(function () {
 Route::prefix('wallets')->group(function () {
     Route::get('', 'WalletsController@listWallets');
     Route::get('{address}/transactions', 'TransactionsController@walletTransactions');
+    Route::get('{address}/voting', 'WalletsController@votingFor');
 });
 
 Route::prefix('delegates')->group(function () {

@@ -22,4 +22,12 @@ class WalletsController extends Controller
 
         return json_encode($response->getWallets(), true);
     }
+
+    public function votingFor($address): string {
+        $request = new WalletsRequestCommand();
+        $request->byAddress($address);
+        $response = $this->retrieveWalletsService->execute($request);
+
+        return json_encode($response->votingFor(), true);
+    }
 }
