@@ -20,7 +20,7 @@ class BlocksController extends Controller
         $request = new BlockRequestCommand();
         $response = $this->retrieveBlocksService->execute($request);
 
-        return json_encode($response->getBlocks(), true);
+        return json_encode($response, true);
     }
 
     public function blockDetails(string $id): string {
