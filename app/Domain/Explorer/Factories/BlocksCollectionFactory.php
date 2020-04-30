@@ -8,7 +8,7 @@ namespace App\Domain\Explorer\Factories;
 
 use Illuminate\Support\Collection;
 
-class CollectionBlocksFactory extends BlockFactory
+class BlocksCollectionFactory extends BlockFactory
 {
     public function buildCollection(array $response): Collection {
         $blocksList = collect();

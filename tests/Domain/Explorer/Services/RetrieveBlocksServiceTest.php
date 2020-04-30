@@ -4,7 +4,7 @@
 namespace Tests\Domain\Explorer\Services;
 
 
-use App\Domain\Explorer\Factories\CollectionBlocksFactory;
+use App\Domain\Explorer\Factories\BlocksCollectionFactory;
 use App\Domain\Explorer\Models\BlockDTO;
 use App\Domain\Explorer\Services\RetrieveBlocksService;
 use App\Infrastructure\ExternalData\ArkClientService;
@@ -16,7 +16,7 @@ class RetrieveBlocksServiceTest extends TestCase
 {
     public function test_it_returns_blocks_list(){
         $arkClientService = $this->createMock(ArkClientService::class);
-        $blocksFactory = $this->createMock(CollectionBlocksFactory::class);
+        $blocksFactory = $this->createMock(BlocksCollectionFactory::class);
         $request = new BlockRequestCommand();
         $blocksPayload = ["fake-payload-response", "fake-payload-response"];
         $collectionBlocks = $this->createMock(Collection::class);
@@ -34,7 +34,7 @@ class RetrieveBlocksServiceTest extends TestCase
 
     public function test_it_returns_block(){
         $arkClientService = $this->createMock(ArkClientService::class);
-        $blocksFactory = $this->createMock(CollectionBlocksFactory::class);
+        $blocksFactory = $this->createMock(BlocksCollectionFactory::class);
         $request = new BlockRequestCommand();
         $blocksPayload = [ "data" => ["fake-payload-response"]];
         $block = $this->createMock(BlockDTO::class);
