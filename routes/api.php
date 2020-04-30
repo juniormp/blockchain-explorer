@@ -18,12 +18,31 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('list-transactions', 'TransactionsController@listTransactions');
-Route::get('transaction-details/{id}', 'TransactionsController@transactionDetails');
+Route::prefix('transactions')->group(function () {
+    Route::get('', 'TransactionsController@listTransactions');
+    Route::get('{id}', 'TransactionsController@transactionDetails');
+});
 
-Route::get('list-blocks', 'BlocksController@listBlocks');
-Route::get('block-details/{id}', 'BlocksController@blockDetails');
+Route::prefix('blocks')->group(function () {
+    Route::get('', 'BlocksController@listBlocks');
+    Route::get('{id}', 'BlocksController@blockDetails');
+});
 
-Route::get('list-wallets', 'WalletsController@listWallets');
+Route::prefix('wallets')->group(function () {
+    Route::get('', 'WalletsController@listWallets');
+});
 
-Route::get('list-delegates', 'DelegatesController@listDelegates');
+Route::prefix('delegates')->group(function () {
+    Route::get('', 'DelegatesController@listDelegates');
+});
+
+
+
+
+
+
+
+
+
+
+
