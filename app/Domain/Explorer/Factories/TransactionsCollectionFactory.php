@@ -4,12 +4,11 @@
 namespace App\Domain\Explorer\Factories;
 
 
-use App\Domain\Explorer\Models\CollectionsTransactionDTO;
+use Illuminate\Support\Collection;
 
 class TransactionsCollectionFactory extends TransactionFactory
 {
-    public function buildCollection(array $response): CollectionsTransactionDTO {
-        $collectionTransactions = new CollectionsTransactionDTO();
+    public function buildCollection(array $response): Collection {
         $transactionsList = collect();
 
         foreach ($response['data'] as $transactionPayload){
@@ -17,9 +16,6 @@ class TransactionsCollectionFactory extends TransactionFactory
             $transactionsList->push($transaction);
         }
 
-        $collectionTransactions
-            ->setTransactions($transactionsList);
-
-        return $collectionTransactions;
+        return $transactionsList;
     }
 }

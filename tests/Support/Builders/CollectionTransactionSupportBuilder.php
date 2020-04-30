@@ -4,17 +4,14 @@
 namespace Tests\Support\Builders;
 
 
-use App\Domain\Explorer\Models\CollectionsTransactionDTO;
 use App\Domain\Explorer\Models\TransactionDTO;
+use Illuminate\Support\Collection;
 
 class CollectionTransactionSupportBuilder
 {
-    public static function buildDefault(): CollectionsTransactionDTO
+    public static function buildDefault(): Collection
     {
-        $collections = new CollectionsTransactionDTO();
-
-        return $collections
-            ->setTransactions(collect([self::createTransaction(), self::createTransaction()]));
+        return (collect([self::createTransaction(), self::createTransaction()]));
     }
 
     public static function createTransaction(): TransactionDTO {

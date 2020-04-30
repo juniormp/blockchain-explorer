@@ -5,11 +5,11 @@ namespace Tests\Domain\Explorer\Services;
 
 
 use App\Domain\Explorer\Factories\TransactionsCollectionFactory;
-use App\Domain\Explorer\Models\CollectionsTransactionDTO;
 use App\Domain\Explorer\Models\TransactionDTO;
 use App\Domain\Explorer\Services\RetrieveTransactionsService;
 use App\Infrastructure\ExternalData\ArkClientService;
 use App\Infrastructure\ExternalData\Requests\TransactionRequestCommand;
+use Illuminate\Database\Eloquent\Collection;
 use Tests\TestCase;
 
 class RetrieveTransactionsServiceTest extends TestCase
@@ -19,7 +19,7 @@ class RetrieveTransactionsServiceTest extends TestCase
         $transactionFactory = $this->createMock(TransactionsCollectionFactory::class);
         $request = new TransactionRequestCommand();
         $transactionPayload = ["fake-payload-response", "fake-payload-response"];
-        $collectionTransactions = $this->createMock(CollectionsTransactionDTO::class);
+        $collectionTransactions = $this->createMock(Collection::class);
         $service = new RetrieveTransactionsService($arkClientService, $transactionFactory);
 
         $arkClientService->expects($this->once())->method('handleRequest')->with($request)
