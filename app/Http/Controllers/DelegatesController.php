@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Domain\Explorer\Services\RetrieveDelegatesService;
-use App\Infrastructure\ExternalData\Requests\DelegatesRequest;
+use App\Infrastructure\ExternalData\Requests\DelegatesRequestCommand;
 
 class DelegatesController extends Controller
 {
@@ -17,7 +17,7 @@ class DelegatesController extends Controller
     }
 
     public function listDelegates(): string {
-        $request = new DelegatesRequest();
+        $request = new DelegatesRequestCommand();
         $response = $this->retrieveDelegatesService->execute($request);
 
         return json_encode($response->getDelegates(), true);
