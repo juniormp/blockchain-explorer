@@ -4,7 +4,7 @@
 namespace App\Domain\Explorer\Services;
 
 
-use App\Domain\Explorer\Factories\CollectionBlocksFactory;
+use App\Domain\Explorer\Factories\BlocksCollectionFactory;
 use App\Infrastructure\ExternalData\ArkClientService;
 use App\Infrastructure\ExternalData\Requests\BlockRequestCommand;
 
@@ -13,10 +13,10 @@ class RetrieveBlocksService
     /** @var ArkClientService */
     private $arkClientService;
 
-    /** @var CollectionBlocksFactory */
+    /** @var BlocksCollectionFactory */
     private $blocksFactory;
 
-    function __construct(ArkClientService $arkClientService, CollectionBlocksFactory $blocksFactory) {
+    function __construct(ArkClientService $arkClientService, BlocksCollectionFactory $blocksFactory) {
         $this->arkClientService = $arkClientService;
         $this->blocksFactory = $blocksFactory;
     }
