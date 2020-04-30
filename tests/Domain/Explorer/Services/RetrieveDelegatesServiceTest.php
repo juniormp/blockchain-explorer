@@ -5,10 +5,10 @@ namespace Tests\Domain\Explorer\Services;
 
 
 use App\Domain\Explorer\Factories\DelegatesCollectionFactory;
-use App\Domain\Explorer\Models\DelegatesCollectionDTO;
 use App\Domain\Explorer\Services\RetrieveDelegatesService;
 use App\Infrastructure\ExternalData\ArkClientService;
 use App\Infrastructure\ExternalData\Requests\DelegatesRequestCommand;
+use Illuminate\Support\Collection;
 use Tests\TestCase;
 
 class RetrieveDelegatesServiceTest extends TestCase
@@ -18,7 +18,7 @@ class RetrieveDelegatesServiceTest extends TestCase
         $delegatesFactory = $this->createMock(DelegatesCollectionFactory::class);
         $request = new DelegatesRequestCommand();
         $delegatesPayload = ["fake-payload-response", "fake-payload-response"];
-        $delegatesCollection = $this->createMock(DelegatesCollectionDTO::class);
+        $delegatesCollection = $this->createMock(Collection::class);
         $service = new RetrieveDelegatesService($arkClientService, $delegatesFactory);
 
         $arkClientService->expects($this->once())->method('handleRequest')->with($request)

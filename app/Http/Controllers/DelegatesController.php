@@ -20,6 +20,6 @@ class DelegatesController extends Controller
         $request = new DelegatesRequestCommand();
         $response = $this->retrieveDelegatesService->execute($request);
 
-        return json_encode($response->getDelegates(), true);
+        return json_encode($response, true);
     }
 }
