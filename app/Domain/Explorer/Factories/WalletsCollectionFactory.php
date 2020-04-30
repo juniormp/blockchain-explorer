@@ -5,9 +5,8 @@ namespace App\Domain\Explorer\Factories;
 
 
 use App\Domain\Explorer\Models\CollectionsWalletDTO;
-use App\Domain\Explorer\Models\WalletDTO;
 
-class WalletsCollectionFactory
+class WalletsCollectionFactory extends WalletsFactory
 {
     public function buildCollection(array $payload): CollectionsWalletDTO {
         $walletsCollection = new CollectionsWalletDTO();
@@ -30,16 +29,5 @@ class WalletsCollectionFactory
             ->setWallet($walletsList);
 
         return $walletsCollection;
-    }
-
-    private function createWallet(array $walletPayload): WalletDTO{
-        $wallet = new WalletDTO();
-
-         return $wallet
-            ->setAddress($walletPayload['address'])
-            ->setNonce($walletPayload['nonce'])
-            ->setBalance($walletPayload['balance'])
-            ->setIsDelegate($walletPayload['isDelegate'])
-            ->setIsResigned($walletPayload['isResigned']);
     }
 }
