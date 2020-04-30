@@ -6,7 +6,7 @@ namespace App\Domain\Explorer\Services;
 
 use App\Domain\Explorer\Factories\WalletsCollectionFactory;
 use App\Infrastructure\ExternalData\ArkClientService;
-use App\Infrastructure\ExternalData\Requests\WalletsRequest;
+use App\Infrastructure\ExternalData\Requests\WalletsRequestCommand;
 
 class RetrieveWalletsService
 {
@@ -22,7 +22,7 @@ class RetrieveWalletsService
         $this->walletsFactory = $walletsFactory;
     }
 
-    public function execute(WalletsRequest $request)
+    public function execute(WalletsRequestCommand $request)
     {
         $walletsPayload = $this->arkClientService->handleRequest($request);
 
