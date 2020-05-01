@@ -13,3 +13,6 @@ Route::get('/blocks', function () {
 });
 
 Route::get('/transactions/{address}', 'TransactionsController@transactionDetails');
+
+Route::get('/blocks/{address}', 'BlocksController@blockDetails');
+
