@@ -1,9 +1,5 @@
 @extends('livewire/layout')
 
 @section('content')
-    <div>
-        {{ $transaction }}
-    </div>
+    @livewire('blocks-list')
 @endsection
-
-
