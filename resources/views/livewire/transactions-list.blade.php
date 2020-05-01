@@ -26,9 +26,9 @@
         </thead>
         <tbody>
         @foreach ($transactions as $transaction)
-            <tr>
+            <tr class="hover:bg-gray-200">
                 <td class="border-dashed border-t border-gray-200 userId">
-                    <span class="text-gray-700 px-6 py-3 flex items-center" wire:click="showDetails('{{$transaction['id']}}')">
+                    <span class="text-blue-500 px-6 py-3 flex items-center cursor-pointer" wire:click="showDetails('{{$transaction['id']}}')">
                                 {{$transaction['id']}} </span>
                 </span>
                 </td>
