@@ -3,7 +3,7 @@
         @livewireStyles
     </head>
     <body>
-        @livewire('foo')
+        @livewire('transactions-list')
 
         @livewireScripts
     </body>
