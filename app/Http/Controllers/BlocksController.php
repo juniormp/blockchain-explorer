@@ -27,7 +27,9 @@ class BlocksController extends Controller
         $request = new BlockRequestCommand();
         $request->byId($id);
         $response = $this->retrieveBlocksService->execute($request);
+        $block = json_encode($response, true);
 
-        return json_encode($response, true);
+
+        return view('livewire.block-details', compact('block'));
     }
 }

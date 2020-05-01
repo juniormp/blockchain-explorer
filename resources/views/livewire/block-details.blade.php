@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        {{ $transaction }}
+        {{ $block }}
     </div>
 @endsection
 
