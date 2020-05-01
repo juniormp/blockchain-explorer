@@ -1,11 +1,5 @@
-<html>
-    <head>
-        @livewireStyles
-    </head>
-    <body>
-        @livewire('transactions-list')
+@extends('livewire/layout')
 
-        @livewireScripts
-    </body>
-</html>
-
+@section('content')
+    @livewire('transactions-list')
+@endsection
