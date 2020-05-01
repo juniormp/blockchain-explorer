@@ -21,7 +21,6 @@ class TransactionsList extends Component
 
     public function showDetails($address)
     {
-        dd($address);
         redirect()->action('TransactionsController@transactionDetails', ['address' => $address]);
     }
 }
