@@ -27,10 +27,10 @@ class TransactionsController extends Controller
     public function transactionDetails(string $id): string {
         $request = new TransactionRequestCommand();
         $request->byId($id);
-
         $response = $this->retrieveTransactionsService->execute($request);
+        $transaction = json_encode($response, true);
 
-        return json_encode($response, true);
+        return view('livewire.transaction-details', compact('transaction'));
     }
 
     public function walletTransactions(string $address): string {
