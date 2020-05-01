@@ -4,24 +4,24 @@
 namespace App\Domain\Explorer\Services;
 
 
-use App\Domain\Explorer\Factories\CollectionsTransactionFactory;
+use App\Domain\Explorer\Factories\TransactionsCollectionFactory;
 use App\Infrastructure\ExternalData\ArkClientService;
-use App\Infrastructure\ExternalData\Requests\ListTransactionsRequest;
+use App\Infrastructure\ExternalData\Requests\OperationRequest;
 
 class RetrieveTransactionsService
 {
     /** @var ArkClientService */
     private $arkClientService;
 
-    /** @var CollectionsTransactionFactory */
+    /** @var TransactionsCollectionFactory */
     private $transactionsFactory;
 
-    function __construct(ArkClientService $arkClientService, CollectionsTransactionFactory $transactionsFactory) {
+    function __construct(ArkClientService $arkClientService, TransactionsCollectionFactory $transactionsFactory) {
         $this->arkClientService = $arkClientService;
         $this->transactionsFactory = $transactionsFactory;
     }
 
-    public function execute(ListTransactionsRequest $request) {
+    public function execute(OperationRequest $request) {
         $transactionsPayload = $this->arkClientService->handleRequest($request);
 
         if ($this->isCollection($transactionsPayload)) {

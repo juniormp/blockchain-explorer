@@ -7,22 +7,22 @@ namespace App\Domain\Explorer\Models;
 class WalletDTO
 {
     /** @var string */
-    private $address;
+    public $address;
 
     /** @var string */
-    private $publicKey;
+    public $nonce;
 
     /** @var string */
-    private $nonce;
+    public $balance;
 
     /** @var string */
-    private $balance;
+    public $vote;
 
     /** @var bool */
-    private $isDelegate;
+    public $isDelegate;
 
     /** @var bool */
-    private $isResigned;
+    public $isResigned;
 
     public function getAddress(): string
     {
@@ -35,31 +35,10 @@ class WalletDTO
         return $this;
     }
 
-    public function getPublicKey(): string
-    {
-        return $this->publicKey;
-    }
-
-    public function setPublicKey(string $publicKey): WalletDTO
-    {
-        $this->publicKey = $publicKey;
-        return $this;
-    }
-
-    public function getNonce(): string
-    {
-        return $this->nonce;
-    }
-
     public function setNonce(string $nonce): WalletDTO
     {
         $this->nonce = $nonce;
         return $this;
-    }
-
-    public function getBalance(): string
-    {
-        return $this->balance;
     }
 
     public function setBalance(string $balance): WalletDTO
@@ -68,9 +47,10 @@ class WalletDTO
         return $this;
     }
 
-    public function isDelegate(): bool
+    public function setVote(string $vote): WalletDTO
     {
-        return $this->isDelegate;
+        $this->vote = $vote;
+        return $this;
     }
 
     public function setIsDelegate(bool $isDelegate): WalletDTO
@@ -79,14 +59,14 @@ class WalletDTO
         return $this;
     }
 
-    public function isResigned(): bool
-    {
-        return $this->isResigned;
-    }
-
     public function setIsResigned(bool $isResigned): WalletDTO
     {
         $this->isResigned = $isResigned;
         return $this;
+    }
+
+    public function votingFor(): string
+    {
+        return $this->vote;
     }
 }

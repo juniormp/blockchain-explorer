@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 
 
 use App\Domain\Explorer\Services\RetrieveTransactionsService;
-use App\Infrastructure\ExternalData\Requests\ListTransactionsRequest;
+use App\Infrastructure\ExternalData\Requests\TransactionRequestCommand;
+use App\Infrastructure\ExternalData\Requests\WalletsRequestCommand;
 
 class TransactionsController extends Controller
 {
@@ -17,9 +18,27 @@ class TransactionsController extends Controller
     }
 
     public function listTransactions(): string {
-        $request = new ListTransactionsRequest();
+        $request = new TransactionRequestCommand();
         $response = $this->retrieveTransactionsService->execute($request);
 
-        return json_encode($response->getTransactions(), true);
+        return json_encode($response, true);
+    }
+
+    public function transactionDetails(string $id): string {
+        $request = new TransactionRequestCommand();
+        $request->byId($id);
+
+        $response = $this->retrieveTransactionsService->execute($request);
+
+        return json_encode($response, true);
+    }
+
+    public function walletTransactions(string $address): string {
+        $request = new WalletsRequestCommand();
+        $request->transactionsFromAddress($address);
+
+        $response = $this->retrieveTransactionsService->execute($request);
+
+        return json_encode($response, true);
     }
 }

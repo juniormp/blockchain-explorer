@@ -6,7 +6,7 @@ namespace App\Domain\Explorer\Services;
 
 use App\Domain\Explorer\Factories\DelegatesCollectionFactory;
 use App\Infrastructure\ExternalData\ArkClientService;
-use App\Infrastructure\ExternalData\Requests\DelegatesRequest;
+use App\Infrastructure\ExternalData\Requests\DelegatesRequestCommand;
 
 class RetrieveDelegatesService
 {
@@ -22,7 +22,7 @@ class RetrieveDelegatesService
         $this->delegatesFactory = $delegatesFactory;
     }
 
-    public function execute(DelegatesRequest $request)
+    public function execute(DelegatesRequestCommand $request)
     {
         $delegatesPayload = $this->arkClientService->handleRequest($request);
 

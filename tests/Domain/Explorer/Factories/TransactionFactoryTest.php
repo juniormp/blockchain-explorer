@@ -4,8 +4,8 @@
 namespace Tests\Domain\Explorer\Factories;
 
 
-use App\Domain\Explorer\Factories\CollectionBlocksFactory;
-use App\Domain\Explorer\Factories\CollectionsTransactionFactory;
+use App\Domain\Explorer\Factories\BlocksCollectionFactory;
+use App\Domain\Explorer\Factories\TransactionsCollectionFactory;
 use App\Domain\Explorer\Factories\TransactionFactory;
 use Tests\Support\Builders\CollectionBlocksSupportBuilder;
 use Tests\Support\Builders\CollectionTransactionSupportBuilder;

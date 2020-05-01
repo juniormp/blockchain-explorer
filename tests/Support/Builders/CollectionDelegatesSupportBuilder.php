@@ -5,24 +5,13 @@ namespace Tests\Support\Builders;
 
 
 use App\Domain\Explorer\Models\DelegateDTO;
-use App\Domain\Explorer\Models\DelegatesCollectionDTO;
+use Illuminate\Support\Collection;
 
 class CollectionDelegatesSupportBuilder
 {
-    public static function buildDefault(): DelegatesCollectionDTO
+    public static function buildDefault(): Collection
     {
-        $collections = new DelegatesCollectionDTO();
-
-        return $collections
-            ->setCount(100)
-            ->setPageCount(12)
-            ->setTotalCount(1132)
-            ->setNext("/delegates?page=2&limit=100")
-            ->setPrevious("")
-            ->setSelf("/delegates?page=1&limit=100")
-            ->setFirst("/delegates?page=1&limit=100")
-            ->setLast("/delegates?page=12&limit=100")
-            ->setDelegates(collect([self::createDelegate(), self::createDelegate()]));
+        return collect([self::createDelegate(), self::createDelegate()]);
     }
 
     public static function createDelegate(): DelegateDTO {

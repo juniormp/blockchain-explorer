@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Http\Request;
@@ -16,3 +17,34 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::prefix('transactions')->group(function () {
+    Route::get('', 'TransactionsController@listTransactions');
+    Route::get('{id}', 'TransactionsController@transactionDetails');
+});
+
+Route::prefix('blocks')->group(function () {
+    Route::get('', 'BlocksController@listBlocks');
+    Route::get('{id}', 'BlocksController@blockDetails');
+});
+
+Route::prefix('wallets')->group(function () {
+    Route::get('', 'WalletsController@listWallets');
+    Route::get('{address}/transactions', 'TransactionsController@walletTransactions');
+    Route::get('{address}/voting', 'WalletsController@votingFor');
+});
+
+Route::prefix('delegates')->group(function () {
+    Route::get('', 'DelegatesController@listDelegates');
+});
+
+
+
+
+
+
+
+
+
+
+

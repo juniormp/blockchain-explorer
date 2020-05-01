@@ -6,7 +6,7 @@ namespace App\Domain\Explorer\Services;
 
 use App\Domain\Explorer\Factories\WalletsCollectionFactory;
 use App\Infrastructure\ExternalData\ArkClientService;
-use App\Infrastructure\ExternalData\Requests\WalletsRequest;
+use App\Infrastructure\ExternalData\Requests\WalletsRequestCommand;
 
 class RetrieveWalletsService
 {
@@ -22,10 +22,18 @@ class RetrieveWalletsService
         $this->walletsFactory = $walletsFactory;
     }
 
-    public function execute(WalletsRequest $request)
+    public function execute(WalletsRequestCommand $request)
     {
         $walletsPayload = $this->arkClientService->handleRequest($request);
 
-        return $this->walletsFactory->buildCollection($walletsPayload);
+        if ($this->isCollection($walletsPayload)) {
+            return $this->walletsFactory->buildCollection($walletsPayload);
+        } else {
+            return $this->walletsFactory->createWallet($walletsPayload['data']);
+        }
+    }
+
+    private function isCollection(array $transactionsPayload): bool {
+        return (count($transactionsPayload) > 1) ? true : false;
     }
 }
