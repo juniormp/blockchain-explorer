@@ -12,6 +12,10 @@ Route::get('/blocks', function () {
     return view('livewire/blocks-list-template');
 });
 
+Route::get('/delegates', function () {
+    return view('livewire/delegates-list-template');
+});
+
 Route::get('/transactions/{address}', 'TransactionsController@transactionDetails');
 
 Route::get('/blocks/{address}', 'BlocksController@blockDetails');
