@@ -1,3 +1,9 @@
-<div>
-    {{-- The best athlete wants his opponent at his best. --}}
-</div>
+@extends('livewire/layout')
+
+@section('content')
+    <div>
+        <p>{{ $transaction }}</p>
+    </div>
+@endsection
+
+
