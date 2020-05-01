@@ -1,8 +1,4 @@
 <div>
-    <button  wire:click="click"> Click !</button>
-</div>
-
-<div>
     <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
         <thead>
         <tr class="text-left">
@@ -32,8 +28,8 @@
         @foreach ($transactions as $transaction)
             <tr>
                 <td class="border-dashed border-t border-gray-200 userId">
-                    <span class="text-gray-700 px-6 py-3 flex items-center" wire:click="showDetails('{{$transaction['id']}}')" >
-                        {{$transaction['id']}}
+                    <span class="text-gray-700 px-6 py-3 flex items-center" wire:click="showDetails('{{$transaction['id']}}')">
+                                {{$transaction['id']}} </span>
                 </span>
                 </td>
                 <td class="border-dashed border-t border-gray-200 firstName">
