@@ -8,6 +8,9 @@
             <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
                 Balance
             </th>
+            <th class="bg-gray-100 sticky top-0 border-b border-gray-200 px-6 py-2 text-gray-600 font-bold tracking-wider uppercase text-xs">
+                Voting For
+            </th>
         </tr>
         </thead>
         <tbody>
@@ -18,6 +21,9 @@
                 </td>
                 <td class="border-dashed border-t border-gray-200 lastName">
                     <span class="text-gray-700 px-6 py-3 flex items-center">{{$wallet['balance']}}</span>
+                </td>
+                <td class="border-dashed border-t border-gray-200 lastName">
+                    <span class="text-gray-700 px-6 py-3 flex items-center">{{$wallet['vote']}}</span>
                 </td>
             </tr>
         @endforeach
