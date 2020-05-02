@@ -18,4 +18,9 @@ class TransactionsList extends Component
     {
         return view('livewire.transactions-list');
     }
+
+    public function showDetails($address)
+    {
+        redirect()->action('TransactionsController@transactionDetails', ['address' => $address]);
+    }
 }
